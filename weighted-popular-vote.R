@@ -47,7 +47,7 @@ vote_totals %>%
   mutate(other = 1 - (dem + rep)) %>%
   mutate(across(c(dem, rep, other), ~.*electoral_votes)) %>% 
   group_by(year) %>% 
-  summarise(across(c(dem, rep, other), sum, na.rm = TRUE)) %>% View()
+  summarise(across(c(dem, rep, other), sum, na.rm = TRUE)) %>%
   print() %>% 
   mutate(across(c(dem, rep, other), ~round(./538, 3))) %>% 
   knitr::kable()
